@@ -1,21 +1,9 @@
-import { GitBookSidebar } from "@/components/GitBookSidebar";
-import { GitBookHeader } from "@/components/GitBookHeader";
-import { GitBookContent } from "@/components/GitBookContent";
-import { TableOfContents } from "@/components/TableOfContents";
+import { MainContent } from "../components/MainContent";
 
-const Index = () => {
+export default function Index() {
   return (
-    <div className="min-h-screen bg-background flex">
-      <GitBookSidebar />
-      <div className="flex-1 flex flex-col">
-        <GitBookHeader />
-        <div className="flex-1 flex">
-          <GitBookContent />
-          <TableOfContents />
-        </div>
-      </div>
+    <div className="min-h-screen bg-background dark:bg-zinc-950 text-foreground dark:text-zinc-100 transition-colors">
+      <MainContent />
     </div>
   );
-};
-
-export default Index;
+}

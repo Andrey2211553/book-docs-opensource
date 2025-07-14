@@ -220,9 +220,9 @@ export function GitBookSidebar({
   };
 
   return (
-    <div className="w-72 h-screen bg-background border-r border-subtle flex flex-col fixed left-0 top-0 z-[9999]">
+    <div className="w-72 h-screen bg-background dark:bg-zinc-900 border-r border-subtle dark:border-zinc-700 flex flex-col fixed left-0 top-0 z-[9999]">
       {/* Header */}
-      <div className="p-4 border-b border-subtle">
+      <div className="p-4 border-b border-subtle dark:border-zinc-700">
         <div className="flex items-center space-x-3">
           <div className="p-1.5 bg-primary rounded">
             <Book className="h-4 w-4 text-primary-foreground" />
@@ -235,7 +235,7 @@ export function GitBookSidebar({
       </div>
 
       {/* Search */}
-      <div className="p-3 border-b border-subtle">
+      <div className="p-3 border-b border-subtle dark:border-zinc-700">
         <div className="relative">
           <Search className="absolute left-2.5 top-1/2 transform -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
           <Input
@@ -248,7 +248,7 @@ export function GitBookSidebar({
       </div>
 
       {/* Navigation */}
-      <div className="flex-1 overflow-y-auto p-2">
+      <div className="flex-1 overflow-y-auto p-2 bg-background dark:bg-zinc-900">
         <nav className="space-y-1">
           {filteredSidebar.length > 0 ? (
             filteredSidebar.map((item) => renderSidebarItem(item))
@@ -261,7 +261,7 @@ export function GitBookSidebar({
       </div>
 
       {/* Footer */}
-      <div className="p-3 border-t border-subtle space-y-1">
+      <div className="p-3 border-t border-subtle dark:border-zinc-700 space-y-1 bg-background dark:bg-zinc-900">
         <Button variant="ghost" className="w-full justify-start h-8 text-sm hover-bg-subtle">
           <HelpCircle className="h-3.5 w-3.5 mr-2 text-muted-foreground" />
           Help & Support
