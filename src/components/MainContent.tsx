@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import heroImage from "@/assets/hero-image.jpg";
+import { Link } from "react-router-dom";
 
 const codeExamples = {
   npm: `npm create my-app@latest\ncd my-app\nnpm run dev\n\n# Your app is now running at http://localhost:3000`,
@@ -100,31 +101,47 @@ export function MainContent() {
   return (
     <main className="min-h-screen w-full flex flex-col items-center bg-gradient-to-b from-white via-slate-50 to-slate-100 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-900 transition-colors">
       {/* Version badge */}
-      <div className="mt-8 mb-2 animate-fade-in">
+      <div className="mt-10 mb-4 animate-fade-in">
         <Badge className="bg-blue-100 text-blue-700 dark:bg-blue-900/60 dark:text-blue-200 px-3 py-1 rounded-full text-xs shadow">🚀 Version 2.0 · Now Available</Badge>
       </div>
       {/* Hero */}
-      <section className="w-full max-w-2xl text-center mb-8 px-4">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-blue-600 via-indigo-500 to-fuchsia-500 bg-clip-text text-transparent drop-shadow-lg mb-4 leading-tight animate-fade-in">
+      <section className="w-full max-w-3xl text-center mb-12 px-4 relative">
+        <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gradient-to-br from-blue-400/30 via-fuchsia-400/20 to-indigo-400/30 rounded-full blur-3xl z-0 animate-glow" />
+        <h1 className="text-5xl sm:text-6xl font-extrabold bg-gradient-to-r from-blue-600 via-indigo-500 to-fuchsia-500 bg-clip-text text-transparent drop-shadow-lg mb-6 leading-tight animate-fade-in z-10 relative">
           Build Documentation<br />That Inspires
         </h1>
-        <p className="text-lg text-slate-600 dark:text-zinc-300 mb-6 max-w-xl mx-auto animate-fade-in delay-100">
+        <p className="text-xl text-slate-600 dark:text-zinc-300 mb-8 max-w-2xl mx-auto leading-relaxed animate-fade-in delay-100 z-10 relative">
           Create, share, and scale your docs with a beautiful, blazing-fast, and developer-friendly platform.
         </p>
-        <Button className="px-8 py-4 text-lg font-semibold rounded-xl shadow-xl bg-gradient-to-r from-blue-600 to-fuchsia-500 text-white hover:scale-105 active:scale-95 transition-transform flex items-center justify-center gap-2 animate-fade-in delay-200">
-          <ArrowRight className="h-6 w-6" /> View Documentation
-        </Button>
-        <div className="text-slate-400 dark:text-zinc-400 text-sm mt-3 animate-fade-in delay-300">Loved by thousands of developers</div>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8 z-10 relative animate-fade-in delay-200">
+          <Link to="/docs">
+            <Button size="lg" className="bg-gradient-to-r from-blue-600 to-fuchsia-500 text-white shadow-lg hover:scale-105 active:scale-95 transition-transform flex items-center gap-2 px-7 py-3 text-lg font-semibold rounded-xl">
+              <BookOpen className="h-5 w-5" /> View Documentation
+            </Button>
+          </Link>
+          <Link to="/modules">
+            <Button size="lg" className="bg-gradient-to-r from-fuchsia-500 to-blue-600 text-white shadow-lg hover:scale-105 active:scale-95 transition-transform flex items-center gap-2 px-7 py-3 text-lg font-semibold rounded-xl">
+              <Layers className="h-5 w-5" /> Modules
+            </Button>
+          </Link>
+        </div>
+        <div className="w-full max-w-2xl flex justify-center mb-12 px-4 z-10 relative animate-scale-in">
+          <img
+            src={heroImage}
+            alt="Hero illustration"
+            className="rounded-2xl shadow-2xl border border-slate-200 dark:border-zinc-800 object-cover w-full h-72 sm:h-80 md:h-96 bg-slate-100 dark:bg-zinc-900"
+          />
+        </div>
+        {/* CTA */}
+        <div className="flex flex-col items-center gap-4 mt-2 animate-fade-in delay-300">
+          <span className="text-lg text-slate-500 dark:text-zinc-400">Ready to dive in?</span>
+          <Link to="/modules">
+            <Button className="px-8 py-3 text-base font-semibold rounded-lg bg-gradient-to-r from-blue-600 to-fuchsia-500 text-white shadow-lg hover:scale-105 active:scale-95 transition-transform flex items-center gap-2">
+              <Layers className="h-5 w-5" /> Start exploring modules
+            </Button>
+          </Link>
+        </div>
       </section>
-      {/* Hero image with animated glow */}
-      <div className="w-full max-w-2xl flex justify-center mb-12 px-4 relative animate-scale-in">
-        <div className="absolute -inset-4 sm:-inset-8 rounded-3xl blur-2xl bg-gradient-to-tr from-blue-400/30 via-fuchsia-400/20 to-indigo-400/30 dark:from-blue-800/40 dark:via-fuchsia-700/30 dark:to-indigo-700/40 z-0 animate-glow" />
-        <img
-          src={heroImage}
-          alt="Hero illustration"
-          className="relative rounded-2xl shadow-2xl border border-slate-200 dark:border-zinc-800 object-cover w-full h-72 sm:h-80 md:h-96 bg-slate-100 dark:bg-zinc-900 z-10"
-        />
-      </div>
       {/* Features */}
       <section className="w-full max-w-5xl flex flex-col md:flex-row gap-6 justify-center mb-16 px-4">
         {[{
